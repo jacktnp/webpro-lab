@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>To do list</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">JS Exercises</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="01-js-can-handle-event.html">Exercise 1</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="02-js-can-chage-css.html">Exercise 2</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="03-js-can-change-text.html">Exercise 3</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="04-js-array1.html">Exercise 4</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="05-js-array2.html">Exercise 5</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="06-js-can-add-element.html">Exercise 6</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="07-js-can-remove-element.html">Exercise 7</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="08-js-todo-list-example.html">Exercise 8</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="09-data-table-problem.html">Exercise 9</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <div class="container">
+      <blockquote class="blockquote text-center">
+          <h1 class="mt-5">Exercise 8</h1>
+        <footer class="blockquote-footer mb-5">
+          Javascript to do list อย่างง่าย
+        </footer>
+      </blockquote>
+
+      <hr />
+
+      <h4>To do list</h4>
+      <ul id="example" class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          ทำการบ้าน web programming
+          <button type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          ซื้อข้าวหมา
+          <button type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          จ่ายค่าโทรศัพท์
+          <button type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          จ่ายค่าหอ
+          <button type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          คิดไม่ออก
+          <button type="button" class="close">
+            <span>&times;</span>
+          </button>
+        </li>
+      </ul>
+      <!-- <hr> -->
+
+      <div class="input-group my-3">
+        <input 
+          id="todo-item-text" 
+          type="text" 
+          class="form-control" 
+          placeholder="เพิ่มรายการใหม่"
+        >
+        <div class="input-group-append">
+          <button class="btn btn-outline-success" type="button" id="add"><strong>+</strong></button>
+        </div>
+      </div>
+      <hr/>
+
+      <h4>โจทย์</h4>
+      <ul id="list">
+        <li>สามารถลบรายการได้</li>
+        <li>สามารถเพิ่มรายการใหม่ได้</li>
+      </ul>
+      <hr/>
+
+
+      <h4>ลับสมอง</h4>
+      <ul>
+        <li>
+          <span class="badge badge-success">สบายๆ</span>
+          สามารถเพิ่มรายการใหม่ได้ โดยพิมพ์ข้อความใน textbox แล้วกด enter
+        </li>
+        <li>
+          <span class="badge badge-warning">ยากนิดหน่อย</span>
+          สมมติว่าดึงข้อมูลจาก API ได้รับขัอมูลเป็น javascript array 
+          <br>
+          <code>let todos = ['task1', 'task2', 'task3', 'task4']</code>
+          <br>
+          <br>
+
+          โดย To do list จะต้องแสดงผลตามข้อมูลที่ได้จาก API ดังนี้ 
+          <br>
+          <br>
+          <img src="./images/todo-list-example.png" class="img-thumbnail">
+
+        </li>
+      </ul>
+      <hr/>
+    </div>
+
+    <script>
+      function del(){
+        let del_item = document.querySelector("ul#example > li");
+        del_item.remove();
+      }
+
+      function add(){
+        let list = document.querySelector("ul#example");
+        let add_item = document.createElement("li");
+        add_item.className = "list-group-item d-flex justify-content-between align-items-center";
+        
+        let add_button = document.createElement("button");
+        add_button.className = "close";
+        let add_span = document.createElement("span");
+        add_span.innerHTML = "&times;";
+        
+        add_item.append(document.querySelector("#todo-item-text").value);
+        add_item.append(add_button);
+        add_button.append(add_span);
+        list.append(add_item);  
+      }
+
+      document.querySelector('.close').addEventListener('click', del);
+      document.querySelector('#add').addEventListener('click', add);
+    </script>
+  </body>
+</html>
