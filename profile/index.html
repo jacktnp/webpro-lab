@@ -1,0 +1,248 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PROFILE : JACK'TNP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Sarabun" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <style type="text/css">
+    	html{
+    		scroll-behavior: smooth;
+    	}
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: 'Sarabun', sans-serif;
+		}
+		#profile-img:hover{
+			animation-name: tada;
+			-webkit-animation-name: tada;
+  			animation-duration: 1.25s;
+		}
+		@-webkit-keyframes tada {
+  			from {
+    			-webkit-transform: scale3d(1, 1, 1);
+    			transform: scale3d(1, 1, 1);
+  			}
+  			10%,20% {
+    			-webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    			transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    		}
+    		30%,50%,70%,90% {
+    			-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    			transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    		}
+    		40%,60%,80% {
+    			-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    			transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  			}
+  			to {
+    			-webkit-transform: scale3d(1, 1, 1);
+    			transform: scale3d(1, 1, 1);
+    		}
+    	}
+
+		@keyframes tada {
+  			from {
+  				-webkit-transform: scale3d(1, 1, 1);
+  				transform: scale3d(1, 1, 1);
+  			}
+  			10%,20% {
+    			-webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    			transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    		}
+    		30%,50%,70%,90% {
+    			-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    			transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    		}
+    		40%,60%,80% {
+    			-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    			transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  			}
+  			to {
+    			-webkit-transform: scale3d(1, 1, 1);
+    			transform: scale3d(1, 1, 1);
+  			}
+		}
+
+		#txt{
+			font-family: 'Merriweather', serif;
+			padding: .75em;
+			text-decoration: underline;
+			text-align: center;
+		}
+		.title{
+			background: #000;
+			color: #fff;
+			margin-top: 1em;
+			padding: 0em 1.25em 0em .35em;
+			font-size: 3em;
+		}
+		.fav-box{
+			width: 100%;
+			height: auto;
+			background: #fffbf1;
+			box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
+			padding: 1.5em 1.5em 1.5em 3em;
+		}
+		table{
+			border-collapse: collapse;
+		}
+		th{
+			text-align: center;
+			background: #ffb400;
+		}
+		th, td{
+			padding: .75em;
+		}
+		tr:nth-child(odd){
+			background-color: #f2f2f2;
+		}
+		a{
+			color: #000;
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <ul class="navbar-nav" style="margin-right: auto;margin-left: auto;">
+          <li class="nav-item" style="margin-right: 1em;">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item dropdown" style="margin-right: 1em;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">My Profile</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#info">My Information</a>
+                    <a class="dropdown-item" href="#edu">My Education</a>
+                    <a class="dropdown-item" href="#favfood">My Favorite foods</a>
+                    <a class="dropdown-item" href="#favmovie">My Favorite movies</a>
+                </div>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact me</a>
+          </li>
+        </ul>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid" id="info">
+  		<div class="container">
+    		<div class="row">
+    			<div class="col-md-1"></div>
+    			<div class="col-md-3"><a href="https://www.facebook.com/no.jk21" target="_blank"><img src="profile.jpg" width="100%" class="img-thumbnail" id="profile-img"></a></div>
+    			<div class="col-md-8">
+    				<div id="txt" style="font-size: 2.5em;">Thanapon Wongprasert</div>
+    				<div id="txt" style="font-size: 1.75em;text-decoration: none;">{ J A C K ' T N P }</div>
+    				<div id="txt" style="font-size: 1em;text-decoration: none;"><b>Birthdate :</b> 2 Apr 1999; <b>Gender:</b> Male; <b>Religion :</b> Buddha;</div>
+    			</div>
+    		</div>
+  		</div>
+	</div>
+
+
+<div class="title" style="padding: 0em 0em 0em 1.25em;" id="edu"><i class="fas fa-university"></i> EDUCATION</div>
+
+<div class="container" style="margin-top: 2em;">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+	<table border="1">
+		<tr>
+			<th>YEAR</th>
+			<th>LEVEL</th>
+			<th>SCHOOL</th>
+		</tr>
+		<tr>
+			<td>2003 - 2006</td>
+			<td>Kindergarten</td>
+			<td>Kajonkiet International School Phuket</td>
+		</tr>
+		<tr>
+			<td>2006 - 2012</td>
+			<td>Primary School</td>
+			<td>Kajonkiet International School Phuket</td>
+		</tr>
+		<tr>
+			<td>2012 - 2017</td>
+			<td>High school</td>
+			<td>Phuketwittayalai School</td>
+		</tr>
+		<tr>
+			<td>2017 - recent</td>
+			<td>Bachelor degree</td>
+			<td>King Mongkut's Institute of Technology Ladkrabang</td>
+		</tr>
+	</table>
+
+	</div>
+	<div class="col-md-2"></div>
+	</div>
+</div>
+
+<div class="title" style="text-align: right;" id="fav"><i class="fas fa-thumbs-up"></i> FAVORITE</div>
+<div class="row" style="margin-top: 2em;margin-right: 0em;margin-bottom: 4em;">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+	<div class="fav-box" id="favfood">
+		<h3><i class="fas fa-utensils"></i> FAVORITE FOODS</h3>
+		<br>
+		<ul>
+			<li>McDonales</li>
+			<li>สปาเกตตี้</li>
+			<li>ต้มยำกุ้ง</li>
+			<li>Pizza</li>
+		</ul>
+	</div>
+</div>
+<div class="col-md-5">
+	<div class="fav-box" id="favmovie">
+		<h3><i class="fas fa-film"></i> FAVORITE MOVIES</h3>
+		<br>
+		<ol>
+			<li><a href="https://www.imdb.com/title/tt1670345/?ref_=fn_al_tt_1">Now you see me</a></li>
+			<li><a href="https://www.imdb.com/title/tt1778399/?ref_=fn_al_tt_2">Harry Potter</a></li>
+			<li><a href="https://www.imdb.com/title/tt9218144/?ref_=fn_al_tt_5">Robin Hood 2018</a></li>
+			<li><a href="https://www.imdb.com/title/tt4123430/?ref_=fn_al_tt_2">Fantastic Beats</a></li>
+			<li><a href="https://www.imdb.com/title/tt5311514/?ref_=nv_sr_2">Your Name.</a></li>
+		</ol>
+	</div>
+</div>
+</div>
+
+<hr>
+	<div class="container" style="margin-bottom: 2em;">
+	<div class="row">
+		<div class="col-md-4" style="border-right: 1px solid #b8b8b885;">
+			<h3><b>Index</b></h3>
+			<a href="#info">My Information</a><br>
+            <a href="#edu">My Education</a><br>
+            <a href="#favfood">My Favorite foods</a><br>
+            <a href="#favmovie">My Favorite movies</a>
+        </div>
+		<div class="col-md-4" style="border-right: 1px solid #b8b8b885;">
+			<h3><b>Framework</b></h3>
+			<span>HTML&CSS</span><br>
+			<span>Bootstrap</span><br>
+			<span>Fontawesome</span><br>
+			<span>Google Font</span>s
+		</div>
+		<div class="col-md-4">
+			<h3><b>Contact me</b></h3>
+			<a href="https://www.facebook.com/no.jk21"><i class="fab fa-facebook-square"></i> Thanapon Wongprasert</a><br>
+			<a href="https://www.instagram.com/thanapon.w/"><i class="fab fa-instagram"></i> thanapon.w</a><br>
+			<a href="#"><i class="fab fa-line"></i> nostill</a>
+		</div>
+	</div>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
