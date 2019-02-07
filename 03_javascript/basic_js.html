@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SUBLIME</title>
+</head>
+<body>
+<h1 id="demo">Hello World</h1>
+<input type="button" onclick="myFunction()" value="+">
+<br><br><br>
+
+<button onclick="document.getElementById('demo').innerHTML =
+Date()">The time is?</button>
+<button onclick="this.innerHTML = Date()">The time is?</button>
+<button onclick="displayDate()">The time is?</button>
+
+<script>
+	document.write(3 * 2 + 8)
+</script>
+<script>
+function myFunction() {
+	document.getElementById("demo").innerHTML = "Hello World !!!";
+}
+</script>
+</body>
+</html>
