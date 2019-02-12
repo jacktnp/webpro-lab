@@ -78,12 +78,14 @@
       <div class="cat-fil" v-for="cat in categories" v-on:click="select()">{{ cat.name }}</div>
     </div>
 
+    <div class="category-filter" v-show="false">Category : {{ id / name }}</div>
     <div class="search-filter"><input class="form-control mr-sm-2" type="search" placeholder="ค้นหาหนัง" aria-label="Search"></div>
+    <div style="clear: both;"></div>
 
     <div class="movie-board">
       <div class="movie" v-for="movie in movies">
         <img v-bind:src="movie.poster" v-bind:alt="movie.name[0]">
-        <!--<a href="#"><span class="movie-title">{{ movie.name.en }}</span></a>-->
+        <!--<a href="#"><div class="movie-title">{{ movie.name.th }}</div></a>-->
       </div>
     </div>
   </div>

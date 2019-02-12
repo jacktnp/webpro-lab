@@ -24,10 +24,17 @@
     background: #a9a9a9;
 }
 
+.category-filter{
+    font-size: 1.5em;
+    font-weight: bold;
+    float: left;
+    margin-top: 1em;
+}
+
 .search-filter{
     width: 23%;
     float: right;
-    margin: 1em 1em 2em 1em;
+    margin: 1.5em 0em 1.5em 0em;
 }
 
 .movie-board{
@@ -35,7 +42,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 2em;
 }
 
 .movie{
@@ -44,6 +50,7 @@
      /*flex: 1 0 18.5%; explanation below */
     margin: 0em 1em 1em 0em;
     background: #000;
+    cursor: pointer;
 }
 
 .movie img{
@@ -61,7 +68,7 @@
     text-align: center;
     position: absolute;
     bottom: 0px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .movie:hover{
@@ -77,6 +84,9 @@
     .movie img{
         height: 320px;
     }
+    .search-filter{
+        width: 40%;
+    }
   }
 
 @media only screen and (max-width: 600px) {
@@ -89,5 +99,8 @@
     }
     .movie img{
         height: 320px;
+    }
+    .search-filter{
+        width: 100%;
     }
   }
