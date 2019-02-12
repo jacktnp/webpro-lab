@@ -12,6 +12,12 @@
     text-align: center;
     border-right: 1px solid #cacacab5;
     cursor: pointer;
+    transition: .5s;
+}
+
+.cat-fil:hover{
+    background: #e4e4e4;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.14);
 }
 
 .cat-fil.select{
@@ -61,3 +67,27 @@
 .movie:hover{
     box-shadow: 0px 0px 20px rgba(0,0,0,0.25);
 }
+
+
+@media only screen and (max-width: 995px) {
+    .movie{
+        width: 30%;
+        height: 320px;
+    }
+    .movie img{
+        height: 320px;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .cat-fil{
+        width: 25%;
+    }
+    .movie{
+        width: 45%;
+        height: 320px;
+    }
+    .movie img{
+        height: 320px;
+    }
+  }
