@@ -6,8 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
     integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
-  <script src="data.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
 </head>
 
 <body>
@@ -63,41 +62,34 @@
           <img src="https://i.imgur.com/2RkPLRE.jpg" class="d-block w-100" alt="https://i.imgur.com/2RkPLRE.jpg">
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <!--<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
+      </a>-->
     </div>
   </div>
   <br>
   <!-- Select filter category -->
-  <div class="container">
-    <div class="category" id="movie">
-      <div class="cat-fil select">All</div>
-      <div class="cat-fil" v-for="cat in categories">{{ cat.name }}</div>
+  <div class="container" id="movie">
+    <div class="category">
+      <div class="cat-fil" v-for="cat in categories" v-on:click="select()">{{ cat.name }}</div>
     </div>
 
     <div class="search-filter"><input class="form-control mr-sm-2" type="search" placeholder="ค้นหาหนัง" aria-label="Search"></div>
 
     <div class="movie-board">
-      <div class="movie">
-        <img src="http://www.w3.org/Style/Examples/007/eiffel.jpg" alt="">
-        <!-- <a href="#"><span class="movie-title">Movie Title 1</span></a>-->
+      <div class="movie" v-for="movie in movies">
+        <img v-bind:src="movie.poster" v-bind:alt="movie.name[0]">
+        <!--<a href="#"><span class="movie-title">{{ movie.name.en }}</span></a>-->
       </div>
-      
-      <div class="movie"></div>
-      <div class="movie"></div>
-      <div class="movie"></div>
-      <div class="movie"></div>
-      <div class="movie"></div>
-      <div class="movie"></div>
     </div>
   </div>
 
+  <script src="data.js" charset="utf-8"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

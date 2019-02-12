@@ -1,7 +1,7 @@
-var movie = new Vue({ 
+var app = new Vue({ 
     el: '#movie',
     data: {
-        categories = [
+        categories : [
             { id: 1, name: "Action"},
             { id: 2, name: "Adventure"},
             { id: 3, name: "Animation"},
@@ -15,7 +15,7 @@ var movie = new Vue({
             { id: 11, name: "Sci-Fi"},
             { id: 12, name: "Romance"}
         ],
-        movies = [
+        movies : [
             { 
                 id: 1, 
                 name: { en:"Captain Marvel", th: "กัปตันมาร์เวล" }, 
@@ -64,12 +64,27 @@ var movie = new Vue({
             { 
                 id: 6, 
                 name: { en:"Escape Room", th: "กักห้อง เกมโหด" }, 
-                poster: "", 
+                poster: "https://m.media-amazon.com/images/M/MV5BMjQ2NDMwMTY3MF5BMl5BanBnXkFtZTgwNDg5OTc1NjM@._V1_.jpg", 
                 director: "อดัม โรบิเทล", 
                 actors: "เทย์เลอร์ รัสเซลล์, เดบาร่าห์ แอน โวลล์, โลแกน มิลเลอร์", 
                 categories: [9, 10],
                 synopsis: `<div class="desclistsynopsis"><p></p><p>&nbsp;Escape Room เกิดขึ้นเมื่อกลุ่มคนแปลกหน้าต้องมารวมกันในห้องปริศนาที่ไร้ทางออก โดยมีกล้องวงจรปิดเฝ้าดูพวกเขาจากภายนอก วิธีเดียวที่จะออกจากห้องนี้ได้ จะต้องไขรหัสลับของห้องให้ได้ ถ้าแก้ไขรหัสไม่สำเร็จจะต้องตาย แต่หากใครเป็นผู้ชนะของเกมส์นี้จะได้รับรางวัลเป็นเงินหมื่นดอลล่าร์!! แต่เรื่องราวไม่ง่ายขนาดนั้นเพราะคนที่บงการอยู่เบื้องหลังเกมส์นี้มีวัตถุประสงค์บางอย่าง?&nbsp;</p><br><p></p></div>`
             }
         ]
+    },
+    methods: {
+        select(e, route) {
+             
+          var pre = this.$el.querySelector('.cat-fil');
+          if(pre) {
+              pre.removeClass('cat-fil'); 
+          }
+  
+          this.$router.push({
+              name: route
+          }); 
+          e.target.className = 'cat-fil';
+            
+        }
     }
 });
