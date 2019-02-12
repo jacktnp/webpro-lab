@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Vue.js Homework</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./instruction.html">Homework 1</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./instruction2.html">Homework 2</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="./instruction3.html">Homework 3</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+      <h1>Computed & watch properties</h1>
+      <h2>Select your seat(s)</h2>
+
+      <div class="alert alert-primary" role="alert">
+        UX และ UI เป็นส่วนสำคัญของกระบวนการพัฒนา Web application - มีระบบแต่ไม่มีคนใช้งาน ก็เหมือนไม่มีระบบ
+      </div>
+
+      <p class="text-center">
+        <img src="./imgs/select-seat.png" class="img-fluid" alt="">
+        <br>เลือกที่นั่ง และ ซื้อตั๋ว
+      </p>
+      <hr>
+
+      <p>
+        1. จาก Wireframe ที่ให้มา ให้สร้าง <b>Static HTML Page</b> ตามที่ตัวเองพอใจด้วย HTML + CSS + Bootstrap (ในชั้นตอนนี้ยังไม่จำเป็นต้องมี JS)
+      </p>
+
+      <p>
+        2. import Vuejs เข้ามาใน<b>หน้าแรก</b> และทดสอบว่า Vuejs ทำงานได้ถูกต้อง
+      </p>
+
+      <p>
+        3. Copy ข้อมูลจาก <code>data.js</code> มาไว้ใน <code>data</code> ของ Vue
+      </p>
+
+      <p>
+        4. แก้ไข Component <code>movie-card</code> แล้วนำมาใช้ในหน้าที่ ในส่วน "1" ในรูป
+      </p>
+
+      <p>
+        5. ในส่วน "2" ในรูป เป็นส่วนของการเลือกที่นั่งดูภาพยนตร์ (คำแนะนำ: ที่นั่งแต่ละที่สามารถทำเป็น component ได้) โดยที่นั่งที่ถูกเลือกจะต้องมีการเปลี่ยน class
+        โดยเมื่อกดเลือกแล้วให้ข้อมูลไปปรากฏในรายการ Tickets ในส่วนที่ "3" โดยตั๋วแต่ละใบจะต้องเลือกประเภท (Type) ว่าเป็น "เด็ก", "ปกติ" หรือ "ผู้สูงอายุ"
+      </p>
+
+      <p>
+        6. เมื่อผู้ใช้กดเลือกที่นั่งแล้ว ข้อมูลการซื้อจะต้องไปปรากฏในรายการ Tickets ในส่วนที่ "3" โดยตั๋วแต่ละใบจะต้องเลือกประเภท (Type) ว่าเป็น <strong>"เด็ก", "ปกติ" หรือ "ผู้สูงอายุ"</strong>
+      </p>
+
+      <p>
+        7. ใช้ computed หรือ watch ในการคำนวณราคาแบบอัตโนมัติ โดยเมื่อมีการเลือกที่นั่ง หรือ เปลี่ยนประเภทตั๋ว ราคาจะต้อง update ตามทันที
+      </p>
+
+      <p>
+        
+        <ul>
+            <strong>ลิงค์ที่เกี่ยวข้อง:</strong>
+          <li><a href="https://vuejs.org/v2/guide/computed.html">Computed and watched</a></li>
+          <li><a href="https://vuejs.org/v2/guide/class-and-style.html">Class and style binding</a></li>
+        </ul>
+      </p>
+
+      <hr class="mb-5">
+    </div>
+   </body>
+</html>
