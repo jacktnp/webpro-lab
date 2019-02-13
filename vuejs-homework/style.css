@@ -58,17 +58,17 @@
     height: 350px;
 }
 
-.movie-title{
-    max-width: 100%;
+.movie.title{
+    width: 100%;
     height: auto;
     margin: 0px;
-    padding: .25em 0em .25em 0em;
-    background: #f00;
+    padding: .5em 0em .5em 0em;
+    background: #000000ba;
     color: #fff;
     text-align: center;
-    position: absolute;
-    bottom: 0px;
+    position: relative;
     z-index: 10;
+    top: -40px
 }
 
 .movie:hover{
