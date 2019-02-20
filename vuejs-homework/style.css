@@ -68,7 +68,15 @@
     text-align: center;
     position: relative;
     z-index: 10;
-    top: -40px
+    top: -40px;
+    transition: .25s;
+}
+
+
+.movie:hover .title{
+    height: 100%;
+    padding-top: 75%;
+    top: -350px;
 }
 
 .movie:hover{

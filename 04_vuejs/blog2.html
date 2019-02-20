@@ -23,7 +23,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">Search</span>
             </div>
-            <input type="text" class="form-control" placeholder="Search post" aria-label="search" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Search post" aria-label="search" aria-describedby="basic-addon1" v-model="searchText">
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         You post too many posts. Please stop!!!
       </div>
       <div class="row">
-        <div class="col-md-4" v-for="blog in blogs">
+        <div class="col-md-4" v-for="blog in blogSearchResult">
           <div class="card my-3" v-bind:class="{'bg-dark text-white': isActive}" @click="changeBGColor">
             <img :src="blog.image" class="card-img-top img-fluid" alt="..." />
             <div class="card-body">
@@ -73,6 +73,7 @@
       el: "#app1",
       data: {
         isActive: false,
+        searchText: "",
         blogs: [
           {
             id: 1,
@@ -187,6 +188,14 @@
             total += this.blogs[i].likes;
           }
           return total
+        },
+        blogSearchResult() {
+          return this.blogs.filter(blog => {
+            let searchText = this.searchText.toLowerCase()
+            let isMatchTitle = blog.title.toLowerCase().includes(searchText)
+            let isMatchContent = blog.content.toLowerCase().includes(searchText)
+            return isMatchTitle | isMatchContent
+          })
         }
       },
       watch: {
