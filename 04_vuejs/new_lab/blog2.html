@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+  <div id="app1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>My Blog Posts</h2>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Search</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search post" aria-label="search" aria-describedby="basic-addon1" v-model="searchText">
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-primary" role="alert">
+        Total likes: {{ totalLikes }}
+      </div>
+      <div class="alert alert-danger" role="alert" v-show="tooManyPost">
+        You post too many posts. Please stop!!!
+      </div>
+      <div class="row">
+<div class="col-md-4" v-for="blog in blogs">
+        <card-blog v-bind:blog="blog"></card-blog>
+        <!--<blog-form @create-blog="onCreateBlog"></blog-form>-->
+        <!--
+        <div class="col-md-4" v-for="blog in blogSearchResult">
+          <div class="card my-3" v-bind:class="{'bg-dark text-white': isActive}" @click="changeBGColor">
+            <img :src="blog.image" class="card-img-top img-fluid" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ blog.title }}
+                <span class="badge badge-success ml-5">Likes: {{ blog.likes }}</span>
+              </h5>
+              <p class="card-text" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                {{ blog.content }}<br />
+                <small class="text-muted">Create By: {{ blog.createBy }}</small>
+                <small class="text-muted ml-5">Create Date: {{ blog.createDate }}</small>
+              </p>
+              
+              <button class="btn btn-success" v-on:click.prevent.stop="blog.likes += 1">I like this!</button>
+              <button class="btn btn-info" @click.stop="showComment(blog)">Show comment...</button>
+              <div class="card mt-2 text-dark" v-show="blog.showComment" v-for="(comment, index) in blog.comments">
+                <div class="card-body">
+                  <h6 class="card-title">Comment {{index + 1}}</h6>
+                  <p class="card-text">
+                    {{ comment.text }}<br />
+                    <small class="text-muted">Create By: {{ comment.createBy }}</small>
+                    <small class="text-muted ml-5">Create Date: </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        -->
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: "#app1",
+      data: {
+        isActive: false,
+        searchText: "",
+        blogs: [
+          {
+            id: 1,
+            showComment: false,
+            title: "Hello World!",
+            content: "I love Vue.js. It is so cool and easy!",
+            createBy: "Bundit",
+            createDate: new Date().toLocaleString(),
+            image:
+              "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+            fb: "https://vuejs.org",
+            likes: 0,
+            comments: [
+              { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+              { text: "Could not agree more!", likes: 0, createBy: "John" }
+            ]
+          },
+          {
+            id: 2,
+            showComment: false,
+            title: "Hello 12345!",
+            content:
+              "An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law.",
+            createBy: "Job",
+            createDate: new Date().toLocaleString(),
+            image:
+              "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+            fb: "https://vuejs.org",
+            likes: 0,
+            comments: [
+              {
+                text: "He oppose at thrown desire of no.",
+                likes: 0,
+                createBy: "Jack"
+              },
+              { text: "Noooooo!", likes: 0, createBy: "John" },
+              {
+                text:
+                  "Announcing impression unaffected day his are unreserved indulgence.",
+                likes: 0,
+                createBy: "John"
+              }
+            ]
+          },
+          {
+            id: 3,
+            showComment: false,
+            title: "Hello World!",
+            content: "I love Vue.js. It is so cool and easy!",
+            createBy: "Bundit",
+            createDate: new Date().toLocaleString(),
+            image:
+              "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+            fb: "https://vuejs.org",
+            likes: 0,
+            comments: [{ text: "Yes I agree!", likes: 0, createBy: "Jack" }]
+          },
+          {
+            id: 4,
+            showComment: false,
+            title: "Bah bah bah...",
+            content:
+              "Folly words widow one downs few age every seven. If miss part by fact he park just shew.",
+            createBy: "Job",
+            createDate: new Date().toLocaleString(),
+            image:
+              "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+            fb: "https://vuejs.org",
+            likes: 0,
+            comments: [
+              { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+              { text: "Could not agree more!", likes: 0, createBy: "John" },
+              { text: "Yes I agree!", likes: 0, createBy: "Job" },
+              { text: "Could not agree more!", likes: 0, createBy: "John" }
+            ]
+          },
+          {
+            id: 5,
+            showComment: false,
+            title: "Hey hey hey!",
+            content:
+              "Was certainty remaining engrossed applauded sir how discovery. Settled opinion how enjoyed greater joy adapted too shy. Now properly surprise expenses interest nor replying she she.",
+            createBy: "Bundit",
+            createDate: new Date().toLocaleString(),
+            image:
+              "https://pbs.twimg.com/profile_images/875996174305472512/upM71pVR_400x400.jpg",
+            fb: "https://vuejs.org",
+            likes: 10,
+            comments: [
+              { text: "Yes I agree!", likes: 0, createBy: "Jack" },
+              { text: "Could not agree more!", likes: 0, createBy: "John" }
+            ]
+          }
+        ],
+        selects: [],
+        maxPost: 3,
+        tooManyPost: false
+      },
+      methods: {
+        changeBGColor() {
+          this.isActive = !this.isActive;
+          console.log('change bg color')
+        },
+        showComment(blog) {
+          blog.showComment = !blog.showComment;
+        }
+      },
+      computed: {
+        totalLikes: function() {
+          total = 0
+          for(i = 0; i < this.blogs.length; i++){
+            total += this.blogs[i].likes;
+          }
+          return total
+        },
+        blogSearchResult() {
+          return this.blogs.filter(blog => {
+            let searchText = this.searchText.toLowerCase()
+            let isMatchTitle = blog.title.toLowerCase().includes(searchText)
+            let isMatchContent = blog.content.toLowerCase().includes(searchText)
+            return isMatchTitle | isMatchContent
+          })
+        }
+      },
+      watch: {
+        blogs: function(value){
+          console.log('in watch')
+          if(value.length > this.maxPost){
+            this.tooManyPost = true
+          }
+          else{
+            this.tooManyPost = false
+          }
+            
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
