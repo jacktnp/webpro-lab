@@ -9,8 +9,14 @@
 </head>
 <body>
 <div class="container my-5 p-3" id="app1">
-	<label for="search">Search :</label>
-	<input type="text" class="form-control mb-5" id="search" v-model="search">
+	<div class="alert alert-primary" style="text-align: center;" role="alert">
+		<h2>Music Box <i class="fas fa-headphones"></i></h2>
+	</div>
+	<div class="row">
+		<div class="col-md-1"><h4>search:</h4></div>
+		<div class="col-md-9"><input type="text" class="form-control mb-5" id="search" v-model="search"></div>
+		<div class="col-md-2"><h3><span class="badge badge-secondary">TotalLikes :{{ totalLikes }}</span></h3></div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-4" v-for="article in searchResult">
@@ -106,7 +112,14 @@
 					let isMatchDetail = dose.detail.toLowerCase().includes(search)
 					return isMatchTitle | isMatchDetail
 				})
-			} 
+			},
+			totalLikes: function() {
+          		total = 0
+          		for(i = 0; i < this.dose.length; i++){
+            		total += this.dose[i].likes;
+          		}
+          		return total
+        	}
 		},
 		watch: {}
 	})
