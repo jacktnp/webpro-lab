@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Midterm1 _ HTML/CSS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+	<script src="compo.js"></script>
+</head>
+<body>
+<div class="container mt-5 p-3 bg-info" id="app1">
+	<label for="search">Search :</label>
+	<input type="text" class="form-control" id="search">
+
+	<div class="row">
+		<div class="col-md-4" v-for="article in dose">
+			<blog v-bind:dose="blog"></blog>
+		</div>
+	</div>
+</div>
+
+<script>
+	var app = new Vue({
+		el: "#app1",
+		data: {
+			dose : [
+				{
+					id: 1,
+					title: 'Fortune Cookies~',
+					detail: 'ให้คุกกี้ทำนายกัน Koisuru Fortune Cookies มาลุ้นดูสิ',
+					createBy: 'BNK48',
+					createDate: new Date().toLocaleString(),
+					image: 'https://i.imgur.com/fPnM0W7.jpg',
+					likes: 0,
+					comments: [
+						{text: "Yes I agree!", createBy: "Jack"},
+						{text: "Could not agree more!", createBy: "John"}
+					]
+				},
+				{
+					id: 2,
+					title: 'DAY 1',
+					detail: 'You\'ll always be my day oneDay zero when I was no one',
+					createBy: 'Honne',
+					createDate: new Date().toLocaleString(),
+					image: 'https://i.imgur.com/bbOUi3V.jpg',
+					likes: 3,
+					comments: [
+						{text: "Yes I agree!", createBy: "Jack"},
+						{text: "Could not agree more!", createBy: "John"}
+					]
+				},
+				{
+					id: 3,
+					title: 'ธารารัตน์',
+					detail: 'โอ้ธารารัตน์ เบาเบา แต่ไม่ตกหลุมรักคนเมา ไม่เอาหรอก ฉันรู้ว่าเธอหน่ะร้ายจะตาย เธอมีผู้ชายมากมาย อย่ามาลูกไม้ คนอย่างเธอฉันไม่เอาหรอก รู้มั้ยว่าเธอน่ารัก',
+					createBy: 'YOUNGOHM',
+					createDate: new Date().toLocaleString(),
+					image: 'https://i.imgur.com/mm0Y2Ny.jpg',
+					likes: 0,
+					comments: [
+						{text: "Yes I agree!", createBy: "Jack"},
+						{text: "Could not agree more!", createBy: "John"}
+					]
+				},
+				{
+					id: 4,
+					title: 'ถอย',
+					detail: 'ฉันเคยเป็นดั่งคนที่เธอรัก ที่เธอเคยมอบความรัก แต่เหมือนหัวใจวันนี้เธอเปลี่ยนไป ครั้งหนึ่งฉันเคยคิดว่าฉันมีความหวัง ที่จริงเป็นแค่ความหลั',
+					createBy: 'Jack',
+					createDate: new Date().toLocaleString(),
+					image: 'https://i.imgur.com/7aCqehm.jpg',
+					likes: 5,
+					comments: [
+						{text: "Yes I agree!", createBy: "Jack"},
+						{text: "Could not agree more!", createBy: "John"}
+					]
+				}
+			],
+			count: 0,
+		},
+		methods: {},
+		computed: {},
+		watch: {}
+	})
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
