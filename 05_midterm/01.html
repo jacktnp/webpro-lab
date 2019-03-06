@@ -3,17 +3,18 @@
 <head>
 	<title>Midterm1 _ HTML/CSS</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script src="compo.js"></script>
 </head>
 <body>
-<div class="container mt-5 p-3 bg-info" id="app1">
+<div class="container my-5 p-3" id="app1">
 	<label for="search">Search :</label>
-	<input type="text" class="form-control" id="search">
+	<input type="text" class="form-control mb-5" id="search">
 
 	<div class="row">
 		<div class="col-md-4" v-for="article in dose">
-			<blog v-bind:dose="article"></blog>
+			<blog v-bind:dose="article"></blog>	
 		</div>
 	</div>
 </div>
@@ -34,7 +35,8 @@
 					comments: [
 						{text: "Yes I agree!", createBy: "Jack"},
 						{text: "Could not agree more!", createBy: "John"}
-					]
+					],
+					showComment: false
 				},
 				{
 					id: 2,
@@ -47,7 +49,8 @@
 					comments: [
 						{text: "Yes I agree!", createBy: "Jack"},
 						{text: "Could not agree more!", createBy: "John"}
-					]
+					],
+					showComment: false
 				},
 				{
 					id: 3,
@@ -60,7 +63,8 @@
 					comments: [
 						{text: "Yes I agree!", createBy: "Jack"},
 						{text: "Could not agree more!", createBy: "John"}
-					]
+					],
+					showComment: false
 				},
 				{
 					id: 4,
@@ -73,7 +77,8 @@
 					comments: [
 						{text: "Yes I agree!", createBy: "Jack"},
 						{text: "Could not agree more!", createBy: "John"}
-					]
+					],
+					showComment: false
 				}
 			],
 			count: 0,
