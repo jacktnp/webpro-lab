@@ -20,7 +20,7 @@
 
 	<div class="row">
 		<div class="col-md-4" v-for="article in searchResult">
-			<blog v-bind:dose="article" v-on:push="value"></blog>	
+			<blog v-bind:dose="article" @push="add($event)"></blog>	
 		</div>
 	</div>
 </div>
