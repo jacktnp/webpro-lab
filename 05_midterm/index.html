@@ -19,11 +19,74 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4" v-for="article in searchResult">
-			<blog v-bind:dose="article" @push="add($event)"></blog>	
+		<div class="col-md-4" v-for="(article, index) in searchResult">
+			<blog v-bind:dose="article" @add="push($event, index)"></blog>	
 		</div>
+
+		<addblog @add="pushcard($event)"></addblog>
+
+        </div>
 	</div>
 </div>
+
+<script>
+Vue.components('addblog', {
+	props: ['dose'],
+	template: `
+	<div class="col-md-4">
+		<div class="card my-3">
+            <div class="card-body">
+
+				<div class="input-group mb-3">
+  					<div class="input-group-prepend">
+    					<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+  					</div>
+  					<div class="custom-file">
+    					<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  					</div>
+				</div>
+
+                <div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Title</span>
+  					</div>
+  					<input type="text" aria-label="Title" class="form-control" v-model="title">
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Detail</span>
+  					</div>
+  					<input type="text" aria-label="Detail" class="form-control" v-model="detail">
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Create by</span>
+  					</div>
+  					<input type="text" aria-label="createby" class="form-control" v-model="createby">
+				</div>
+
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><i class="fas fa-heart"></i></span>
+  					</div>
+  					<input type="text" aria-label="likes" class="form-control" v-model="likes">
+				</div>
+
+				<button @click="addblog({title: title, detail: detail, createby: createby, likes: likes})">ADD CARD</button>
+
+			</div>
+		</div>
+	</div>`,
+	methods: {
+        addblog(val) {
+            this.$emit('add', val)
+        }
+    }
+})
+</script>
 
 <script>
 	var app = new Vue({
@@ -61,7 +124,7 @@
 				{
 					id: 3,
 					title: 'ธารารัตน์',
-					detail: 'โอ้ธารารัตน์ เบาเบา แต่ไม่ตกหลุมรักคนเมา ไม่เอาหรอก ฉันรู้ว่าเธอหน่ะร้ายจะตาย เธอมีผู้ชายมากมาย อย่ามาลูกไม้ คนอย่างเธอฉันไม่เอาหรอก รู้มั้ยว่าเธอน่ารัก',
+					detail: 'โอ้ธารารัตน์ เบาเบา แต่ไม่ตกหลุมรักคนเมา ไม่เอาหรอก ฉันรู้ว่าเธอหน่ะร้ายจะตาย',
 					createBy: 'YOUNGOHM',
 					createDate: new Date().toLocaleString(),
 					image: 'https://i.imgur.com/mm0Y2Ny.jpg',
@@ -104,8 +167,11 @@
 			search: "",
 		},
 		methods: {
-			push(value) {
-          		this.dose.comments.push(value)
+			push(value, index) {
+          		this.dose[index].comments.push(value)
+			},
+			pushcard(value) {
+          		this.dose.push(value)
         	}
 		},
 		computed: {

@@ -1,8 +1,8 @@
 Vue.component('blog', {
     props: ['dose'],
-    data: { commenttxt: '' },
+    data() { return { commenttxt: '' } },
     template: `
-        <div class="card mx-1">
+        <div class="card my-3">
             <img :src="dose.image" class="card-img-top" :alt="dose.title">
             <div class="card-body">
                 <h5>{{ dose.title }} <span class="badge badge-success">{{ dose.likes }} <i class="fas fa-heart"></i></span></h5>
