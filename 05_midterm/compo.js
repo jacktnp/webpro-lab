@@ -10,7 +10,8 @@ Vue.component('blog', {
                 <button type="button" class="btn btn-info" @click.stop="showComment(dose)"><i class="fas fa-comments"></i> Comments</button>
 
                 <!-- comment -->
-                <div class="card mt-2 text-dark" v-show="dose.showComment" v-for="(comment, index) in dose.comments">
+                <div v-show="dose.showComment">
+                <div class="card mt-2 text-dark" v-for="(comment, index) in dose.comments">
                 <div class="card-body">
                   <h6 class="card-title">Comment {{index + 1}}</h6>
                   <p class="card-text">
@@ -18,13 +19,14 @@ Vue.component('blog', {
                     <small class="text-muted">Create By: {{ comment.createBy }}</small>
                   </p>
                 </div>
-              </div>
-              <!-- /comment -->
-
+                </div>
+                <!-- /comment -->
                 <div class="row mt-2">
                     <div class="col-md-9"><input type="text" class="form-control" placeholder="comment here"></div>
                     <div class="col-md-2"><button type="button" class="btn btn-danger"><i class="fas fa-plus"></i></button></div>
                 </div>
+                </div>
+
             </div>
         </div>
     `,
