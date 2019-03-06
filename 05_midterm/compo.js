@@ -1,5 +1,6 @@
 Vue.component('blog', {
     props: ['dose'],
+    data: { commenttxt : '' },
     template: `
         <div class="card mx-1">
             <img :src="dose.image" class="card-img-top" :alt="dose.title">
@@ -35,7 +36,7 @@ Vue.component('blog', {
             dose.showComment = !dose.showComment;
         },
         addcommenttxt(dose) {
-            
+            this.dose.comments.push({ text: commenttxt, createBy: 'JackZ' })
         }
     },
 })
