@@ -163,12 +163,17 @@
         <li>
           แก้ไขไฟล์ <code style="display: inline">js-can-handle-event.html</code>
           โดยเมื่อกด
-          <button>ปุ่มนี้</button>
+          <button onclick="alerttexttt()">ปุ่มนี้</button>
           แล้วให้ alert ข้อความใน
-          <input type="text" placeholder="กล่องข้อความนี้">
+          <input type="text" placeholder="กล่องข้อความนี้" id="texttt">
         </li>
       </ol>
       <hr>
     </div>
+    <script type="text/javascript">
+      alerttexttt(){
+        return alert(document.querySelector('#texttt').value);
+      }
+    </script>
   </body>
 </html>

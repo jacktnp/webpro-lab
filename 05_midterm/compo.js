@@ -26,7 +26,8 @@ Vue.component('blog', {
                     <div class="col-md-9"><input type="text" class="form-control" v-model="commenttxt" placeholder="comment here"></div>
                     <div class="col-md-2"><button type="button" class="btn btn-danger" @click="addcommenttxt({text: commenttxt, createBy: 'JackZ'})"><i class="fas fa-plus"></i></button></div>
                 </div>
-                </div>
+                </div><br><br>
+                <p><b>create date :</b> {{ dose.createDate }}
 
             </div>
         </div>
