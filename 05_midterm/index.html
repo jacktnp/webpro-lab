@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Midterm1 _ HTML/CSS</title>
+	<title>Midterm_Crisis I</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
@@ -20,7 +20,7 @@
 
 	<div class="row">
 		<div class="col-md-4" v-for="article in searchResult">
-			<blog v-bind:dose="article"></blog>	
+			<blog v-bind:dose="article" v-on:push="value"></blog>	
 		</div>
 	</div>
 </div>
@@ -103,7 +103,11 @@
 			],
 			search: "",
 		},
-		methods: {},
+		methods: {
+			push(value) {
+          		this.dose.comments.push(value)
+        	}
+		},
 		computed: {
 			searchResult() {
           		return this.dose.filter(dose => {

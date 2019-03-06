@@ -1,6 +1,5 @@
 Vue.component('blog', {
     props: ['dose'],
-    data: { commenttxt : '' },
     template: `
         <div class="card mx-1">
             <img :src="dose.image" class="card-img-top" :alt="dose.title">
@@ -24,7 +23,7 @@ Vue.component('blog', {
                 <!-- /comment -->
                 <div class="row mt-2">
                     <div class="col-md-9"><input type="text" class="form-control" v-model="commenttxt" placeholder="comment here"></div>
-                    <div class="col-md-2"><button type="button" class="btn btn-danger" @click="addcommenttxt"><i class="fas fa-plus"></i></button></div>
+                    <div class="col-md-2"><button type="button" class="btn btn-danger" @click="addcommenttxt({text: commenttxt, createBy: 'JackZ'})"><i class="fas fa-plus"></i></button></div>
                 </div>
                 </div>
 
@@ -35,8 +34,8 @@ Vue.component('blog', {
         showComment(dose) {
             dose.showComment = !dose.showComment;
         },
-        addcommenttxt(dose) {
-            this.dose.comments.push({ text: commenttxt, createBy: 'JackZ' })
+        addcommenttxt(val) {
+            this.$emit('add', val)
         }
     },
 })
