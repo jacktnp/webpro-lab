@@ -1,4 +1,5 @@
 Vue.component('blog', {
+    props: 'dose',
     template: `
         <div class="card" style="width: 18rem;">
             <img :src="dose.image" class="card-img-top" :alt="dose.title">
