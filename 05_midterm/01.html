@@ -10,10 +10,10 @@
 <body>
 <div class="container my-5 p-3" id="app1">
 	<label for="search">Search :</label>
-	<input type="text" class="form-control mb-5" id="search">
+	<input type="text" class="form-control mb-5" id="search" v-model="search">
 
 	<div class="row">
-		<div class="col-md-4" v-for="article in dose">
+		<div class="col-md-4" v-for="article in searchResult">
 			<blog v-bind:dose="article"></blog>	
 		</div>
 	</div>
@@ -36,7 +36,7 @@
 						{text: "Yes I agree!", createBy: "Jack"},
 						{text: "Could not agree more!", createBy: "John"}
 					],
-					showComment: false
+					showComment: true
 				},
 				{
 					id: 2,
@@ -81,10 +81,19 @@
 					showComment: false
 				}
 			],
-			count: 0,
+			search: "",
 		},
 		methods: {},
-		computed: {},
+		computed: {
+			searchResult() {
+          		return this.dose.filter(dose => {
+					let search = this.search.toLowerCase()
+					let isMatchTitle = dose.title.toLowerCase().includes(search)
+					let isMatchContent = dose.content.toLowerCase().includes(search)
+					return isMatchTitle | isMatchContent
+				})
+			} 
+		},
 		watch: {}
 	})
 </script>
