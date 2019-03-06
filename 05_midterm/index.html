@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container my-5 p-3" id="app1">
-	<div class="alert alert-primary" style="text-align: center;" role="alert">
+	<div class="alert alert-primary mb-5" style="text-align: center;" role="alert">
 		<h2>Music Box <i class="fas fa-headphones"></i></h2>
 	</div>
 	<div class="row">
@@ -30,21 +30,29 @@
 </div>
 
 <script>
-Vue.components('addblog', {
+Vue.component('addblog', {
 	props: ['dose'],
 	template: `
 	<div class="col-md-4">
 		<div class="card my-3">
+			<div class="card-header bg-secondary text-white" style="text-align: center;"><h5>New Card</h5></div>
             <div class="card-body">
 
-				<div class="input-group mb-3">
+				<!--<div class="input-group mb-3">
   					<div class="input-group-prepend">
     					<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
   					</div>
   					<div class="custom-file">
-    					<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    					<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" v-model="image">
     					<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
   					</div>
+				</div>-->
+
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Image</span>
+  					</div>
+  					<input type="text" aria-label="image" class="form-control" v-model="image">
 				</div>
 
                 <div class="input-group mb-2">
@@ -68,14 +76,24 @@ Vue.components('addblog', {
   					<input type="text" aria-label="createby" class="form-control" v-model="createby">
 				</div>
 
-				<div class="input-group mb-2">
+				<div class="input-group mb-4">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-heart"></i></span>
   					</div>
   					<input type="text" aria-label="likes" class="form-control" v-model="likes">
 				</div>
 
-				<button @click="addblog({title: title, detail: detail, createby: createby, likes: likes})">ADD CARD</button>
+				<button class="btn btn-outline-primary" style="width: 100%;" @click="addblog({
+					id: 999,
+					title: title,
+					detail: detail,
+					createBy: createby,
+					createDate: new Date().toLocaleString(),
+					image: image,
+					likes: likes,
+					comments: [],
+					showComment: false
+				})"><b><i class="fas fa-plus"></i> ADD CARD</b></button>
 
 			</div>
 		</div>
@@ -84,7 +102,7 @@ Vue.components('addblog', {
         addblog(val) {
             this.$emit('add', val)
         }
-    }
+    },
 })
 </script>
 
@@ -186,7 +204,7 @@ Vue.components('addblog', {
 			totalLikes: function() {
           		total = 0
           		for(i = 0; i < this.dose.length; i++){
-            		total += this.dose[i].likes;
+            		total += Number(this.dose[i].likes);
           		}
           		return total
         	}
