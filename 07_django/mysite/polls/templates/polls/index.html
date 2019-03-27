@@ -1,0 +1,28 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My poll page</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 >{{ page_title }}</h1>
+        <!--<img src="{% static 'polls/images/fun.jpg' %}">-->
+        <div class="container bg-dark text-white p-4 rounded">
+            <h2>Poll Lists</h2>
+            <ol>
+                {% for poll in poll_list %}
+                <li>{{ poll.title }} ({{ poll.questions|length }} คำถาม) <a href="{% url 'poll_detail' poll.id %}"><button class="btn btn-light btn-sm mb-2">detail</button></a></li>
+                {% endfor %}
+            </ol>
+            <img src="{% static 'images/cloud.png' %}" style="position: absolute;right: 20;top: 30;width: 300px;z-index: 5;">
+            <img src="{% static 'images/cloud.png' %}" style="position: absolute;right: 20;top: 30;width: 300px;filter: blur(7px);z-index: 0;">
+            <img src="{% static 'images/cloud.png' %}" style="position: absolute;right: 200;top: 120;width: 200px;z-index: 6;opacity: 1;">
+            <img src="{% static 'images/cloud.png' %}" style="position: absolute;right: 200;top: 120;width: 200px;filter: blur(7px);z-index: 1;opacity: 1;">
+        </div>
+    </div>
+</body>
+</html>

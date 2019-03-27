@@ -1,0 +1,37 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ page_title }}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container my-5 p-4 bg-white">
+        <h1>Poll: {{ poll.title }} ({{ poll.questions|length }} คำถาม)</h1>
+        <br>
+        <ol>   
+        {% for this in poll.questions %}
+        <div class="jumbotron p-5">
+            <li>{{ this.text }}</li>
+                {% for select in this.choices %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{this.text}}" id="{{select.text}}" value="{{select.text}}">
+                    <label class="form-check-label" for="{{select.text}}">{{select.text}}</label>
+                </div>
+                {% endfor %}
+        </div>
+        {% endfor %}
+        </ol>
+
+        <br>
+        <div class="float-right fixed">
+            <a href="../index/"><button class="btn btn-danger">กลับหน้าแรก</button></a>
+            
+            <button class="btn btn-secondary">บันทึก</button>
+        </div>
+    </div>
+    
+</body>
+</html>
