@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Django Week 4 Exercise</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    .img {
+      max-width: 100%; 
+      margin-top:4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1>Django Week 4 Exercise</h1>
+    <hr>
+    <p>
+      ก่อนทำโจทย์ควรดูคลิป <a href="https://youtu.be/vepQk-5MQrc">https://youtu.be/vepQk-5MQrc</a> และ <a
+        href="https://youtu.be/6CD5fk5b0kk">https://youtu.be/6CD5fk5b0kk</a>
+    </p>
+    <hr>
+
+    <h3>โจทย์</h3>
+    <ol>
+      <!-- 1 -->
+      <li>
+        <p>
+          สร้าง Admin page สำหรับ Comment โดยมีขั้นตอนดังนี้
+          <button class="btn btn-primary btn-sm" onclick="toggleShow('#tutorial-1')">Detail</button>
+        </p>
+        <ul style="list-style-type: none; display: none;" id="tutorial-1">
+          <!-- 1.1 -->
+          <li>
+            1.1 แก้ไข <code>class Comment</code> ใน <code>polls/models.py</code> โดยเพิ่ม ForeignKey ไปยัง
+            <code>Poll</code>
+            <br>
+            <img src="./images/img7.png" style="max-width: 100%; margin-top:4px;" alt="" srcset="">
+          </li>
+          <hr>
+
+          <!-- 2.2 -->
+          <li>
+            1.2 สร้าง admin page สำหรับ Comment ให้มีหน้าตาดังนี้ <br>
+            <img src="./images/img8.png" style="max-width: 100%; margin-top: 4px;" alt="" srcset="">
+            <br>
+            <ul>
+              <li>แสดงข้อมูล Title, Email, Tel และชื่อ Poll</li>
+              <li>มีช่อง searchbox สำหรับค้นหา comment ด้วย title</li>
+              <li>สามารถ Filter ได้ด้วย Poll</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <hr>
+
+      <!-- 2 -->
+      <li>
+        <p>
+          สร้าง Page สำหรับ การเปลี่ยน password
+          <button class="btn btn-primary btn-sm" onclick="toggleShow('#tutorial-2')">Detail</button>
+        </p>
+        <ol id="tutorial-2" style="display: none;">
+          <li>
+            เพิ่ม path ใน <code>polls/urls.py</code>
+          </li>
+          <li>
+            เพิ่ม views ใน <code>polls/views.py</code> (ต้องเป็น login required)
+          </li>
+          <li>
+            สร้างไฟล์ <code>polls/templates/polls/change_password.html</code>
+          </li>
+          <li>
+            สร้าง <code>ChangePasswordForm</code> ใน <code>polls/forms.py</code>
+            และ แสดงผลให้ได้ดังรูป <br>
+            <img src="./images/img9.png" style="max-width: 100%; margin-top: 4px;" alt="" srcset="">
+          </li>
+          <li>
+            ChangePasswordForm ต้องมีการ validate data ดังนี้
+            <ul>
+              <li>รหัสผ่านใหม่ต้องมีตัวอักษรมากกว่า 8 ตัวอักษร</li>
+              <li><b>"รหัสผ่านใหม่"</b> กับ <b>"ยืนยันรหัสผ่าน"</b> ต้องเหมือนกัน</li>
+            </ul>
+          </li>
+          <li>
+            ถ้ารหัสผ่านเก่าถูกต้อง และ รหัสผ่านใหม่ผ่านการ validation (ข้อ 5) ให้บันทึกรหัสผ่านใหม่ โดยใช้
+            <code>set_password()</code> ตามตัวอย่างด้านล่าง
+            <br>
+            <img src="./images/img10.png" style="max-width: 100%; margin-top: 4px;" alt="" srcset="">
+          </li>
+        </ol>
+      </li>
+      <hr>
+
+
+      <!-- 3 -->
+      <li>
+        <p>
+          สร้าง Page สำหรับการ Register User ใหม่​
+          <button class="btn btn-primary btn-sm" onclick="toggleShow('#tutorial-3')">Detail</button>
+        </p>
+        <ol id="tutorial-3" style="display: none;">
+          <!-- 3.1 -->
+          <li>
+            ข้อมูลที่รับจาก User คือ
+            <ul>
+              <li>username</li>
+              <li>password</li>
+              <li>email</li>
+              <li>LINE ID</li>
+              <li>Facebook</li>
+              <li>เพศ</li>
+              <li>วันเกิด</li>
+            </ul>
+            <br>
+            <p>เราจำเป็นต้องทำการ <b>Extend User Model</b> ของ Django โดยการสร้าง model ใหม่และโดยให้มีความสัมพันธ์แบบ
+              <b>One to One</b> กับ Django User Model</p>
+
+            <p>
+              ใน <code>polls/models.py</code> เพิ่ม <code>class Profile</code>
+              <br>
+              <img src="./images/img11.png" style="max-width: 100%; margin-top: 4px;" alt="" srcset="">
+            </p>
+          </li>
+
+          <!-- 3.2 -->
+          <li>
+            เพิ่ม path ใน <code>polls/urls.py</code>
+          </li>
+
+          <!-- 3.3 -->
+          <li>
+            เพิ่ม views ใน <code>polls/views.py</code>
+          </li>
+
+          <!-- 3.4 -->
+          <li>
+            สร้างไฟล์ <code>polls/templates/polls/register.html</code>
+          </li>
+
+          <!-- 3.5 -->
+          <li>
+            สร้าง <code>RegisterForm</code> ใน <code>polls/forms.py</code> และแสดงผลดังรูป
+            <br>
+            <img src="./images/img12.png" class="img" alt="" srcset="">
+          </li>
+
+          <!-- 3.6 -->
+          <li>
+            <code>RegisterForm</code> จะต้องมี validation ดังนี้
+            <ul>
+              <li><b>อีเมล์</b> ถูกต้องตาม format</li>
+              <li><b>รหัสผ่าน</b> ต้องมีความยาวอย่างน้อย 8 ตัวอักษร</li>
+              <li><b>รหัสผ่าน</b> และ <b>ยืนยันรหัสผ่าน</b> ต้องเหมือนกัน</li>
+              <li>ต้องเลือก<b>เพศ</b></li>
+              <li><b>LINE ID</b>, <b>Facebook</b>, <b>วันเกิด</b> จะกรอกหรือไม่กรอกก็ได้</li>
+            </ul>
+          </li>
+
+          <!-- 3.7 -->
+          <li>
+            บันทึกข้อมูลที่ถูก submit ลงใน database
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <script>
+    function toggleShow(css_selector) {
+      let element = document.querySelector(css_selector)
+
+      if (element.style.display === 'block') {
+        element.style.display = 'none';
+      } else {
+        element.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Django Week 3 Exercise</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <main class="container-fluid">
+    <h1>Django Week 3 Exercise <small></small></h1>
+    <hr>
+    <p>ก่อนทำโจทย์ควรดูคลิป <a href="https://youtu.be/EiKharYVtQQ" target="_blank">https://youtu.be/EiKharYVtQQ</a><br></p>
+    <hr>
+    <h3>โจทย์</h3>
+    <p>
+      สร้าง Form สำหรับสร้าง Comment ของ Poll โดยมีขั้นตอนดังนี้
+    </p>
+    <ol>
+      <!-- 1 -->
+      <li>
+        สร้างตาราง Comment ในฐานข้อมูล (MySQL Database) <br> 
+        โดยมี 4 field คือ 
+        <ul>
+          <li><b>title:</b> CharField(max_length=100)</li>
+          <li><b>body:</b> TextField()</li>
+          <li><b>email:</b> EmailField()</li>
+          <li><b>tel:</b> CharField(max_length=10)</li>
+        </ul>
+      </li>
+      <hr>
+
+      <!-- 2 -->
+      <li>
+        ในหน้า <b>Poll Detail</b> (เช่น <a href="http://localhost:8000/polls/detail/3/">http://localhost:8000/polls/detail/3/</a>)<br>
+        เพิ่ม link ไปที่หน้าใหม่ <br>
+
+        <img src="./images/img1.png" style="max-height: 300px;" alt="" srcset="">
+      </li>
+      <hr>
+
+      <!-- 3 -->
+      <li>
+        ใน <code>polls/forms.py</code> เพิ่ม
+        <img src="./images/img3.png" style="max-height:300px;" alt="" srcset="">
+      </li>
+      <hr>
+
+      <!-- 4 -->
+      <li>
+        เมื่อกดที่ link ในข้อ 2 แล้วจะต้องเปิดหน้าใหม่ไปที่ <a href="http://localhost:8000/polls/detail/3/create-comments/">http://localhost:8000/polls/detail/3/create-comments/</a><br>
+        
+        <span style="color: grey">
+          **ในขั้นตอนนี้มี 3 ขั้นตอนย่อย <button class="btn btn-danger btn-sm" onclick="document.querySelector('#step3').style.display = 'block';">spoil</button>
+        </span>
+        <ul id="step3" style="display: none;">
+          <li>เพิ่ม path ใน <code>polls/urls.py</code></li>
+          <li>เพิ่ม view ใน <code>polls/views.py</code></li>
+          <li>เพิ่ม <code>polls/templates/polls/create-comment.html</code></li>
+        </ul><br>
+
+        โดยในหน้า <a href="http://localhost:8000/polls/detail/3/create-comments/">http://localhost:8000/polls/detail/3/create-comments/</a>
+        จะต้องแสดงผลดังรูป<br>
+        <img src="./images/img2.png" style="max-height: 400px;" alt="" srcset="">
+      </li>
+      <hr>
+
+      <!-- 5 -->
+      <li>
+        ให้ validate ข้อมูลดังนี้
+        <ul>
+          <li>title: ตัวอักษรขนาดไม่เกิน 100 ตัวอักษร</li>
+          <li>body: ตัวอักษรขนาดไม่เกิน 500 ตัวอักษร</li>
+          <li>email: ต้องเป็น Email format</li>
+          <li title="ออกสอบ"><b>tel: ต้องเป็นรูปแบบโทรศัพท์มือถือ (ตัวเลข 10 ตัว)</b></li>
+          <li title="ออกสอบ"><b>ต้องกรอก email หรือ tel อย่างใดอย่างหนึ่ง</b></li>
+        </ul>
+      </li>
+      <hr>
+
+      <!-- 6 -->
+      <li>
+        ถ้า ไม่ผ่านการ validation ให้ขึ้นข้อความ error สีแดง เช่น
+        <table style="width:100%;">
+          <tr>
+            <td><img src="./images/img4.png" style="max-width: 100%;" alt="" srcset=""></td>
+            <td><img src="./images/img5.png" style="max-width: 100%;" alt="" srcset=""></td>
+            <td><img src="./images/img6.png" style="max-width: 100%;" alt="" srcset=""></td>
+          </tr>
+        </table>
+      </li>
+      <hr>
+
+      <!-- 7 -->
+      <li>ถ้า ผ่านการ validation แล้วให้บันทึกลง database</li>
+    </ol>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
